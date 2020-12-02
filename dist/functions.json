@@ -1,0 +1,37 @@
+{
+    "functions": [
+        {
+            "description": "Sum of a single range",
+            "id": "SUM",
+            "name": "SUM",
+            "parameters": [
+                {
+                    "name": "header",
+                    "type": "any"
+                }
+            ],
+            "result": {}
+        },
+        {
+            "description": "Returns the second highest value in a matrixed range of values.",
+            "id": "SECONDHIGHEST",
+            "name": "SECONDHIGHEST",
+            "parameters": [
+                {
+                    "description": "Multiple ranges of values.",
+                    "dimensionality": "matrix",
+                    "name": "values",
+                    "type": "number"
+                }
+            ],
+            "result": {}
+        },
+        {
+            "description": "Returns the second highest value in a matrixed range of values.",
+            "id": "GETCHARTTITLEE",
+            "name": "GETCHARTTITLEE",
+            "parameters": [],
+            "result": {}
+        }
+    ]
+}
