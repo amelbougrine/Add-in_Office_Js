@@ -59,6 +59,7 @@
                   <bt:Image size="32" resid="Icon.32x32" />
                   <bt:Image size="80" resid="Icon.80x80" />
                 </Icon>
+
                 <Control xsi:type="Button" id="Reports.TaskpaneButton">
                   <Label resid="Reports.TaskpaneButton.Label" />
                   <Supertip>
@@ -75,7 +76,42 @@
                     <SourceLocation resid="Taskpane.Url" />
                   </Action>
                 </Control>
-              </Group>
+
+                <Control xsi:type="Button" id="Reports2.TaskpaneButton">
+                  <Label resid="Reports2.TaskpaneButton.Label" />
+                  <Supertip>
+                    <Title resid="Reports2.TaskpaneButton.Label" />
+                    <Description resid="Reports2.TaskpaneButton.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Icon2.16x16" />
+                    <bt:Image size="32" resid="Icon2.32x32" />
+                    <bt:Image size="80" resid="Icon2.80x80" />
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <TaskpaneId>ButtonId1</TaskpaneId>
+                    <SourceLocation resid="Taskpane.Url" />
+                  </Action>
+                </Control>
+
+                <Control xsi:type="Button" id="Reports3.TaskpaneButton">
+                  <Label resid="Reports3.TaskpaneButton.Label" />
+                  <Supertip>
+                    <Title resid="Reports3.TaskpaneButton.Label" />
+                    <Description resid="Reports3.TaskpaneButton.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Icon3.16x16" />
+                    <bt:Image size="32" resid="Icon3.32x32" />
+                    <bt:Image size="80" resid="Icon3.80x80" />
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <TaskpaneId>ButtonId1</TaskpaneId>
+                    <SourceLocation resid="Taskpane.Url" />
+                  </Action>
+                </Control>
+                
+              </Group>    
               <Label resid="Reports.Tab.TabLabel" />
             </CustomTab>
 
@@ -105,6 +141,7 @@
                 </Control>
               </Group>
             </OfficeTab> -->
+
           </ExtensionPoint>
         </DesktopFormFactor>
       </Host>
@@ -114,6 +151,13 @@
         <bt:Image id="Icon.16x16" DefaultValue="https://localhost:3000/assets/Reports-transparent-icon-16.png"/>
         <bt:Image id="Icon.32x32" DefaultValue="https://localhost:3000/assets/Reports-transparent-icon-80.png"/>
         <bt:Image id="Icon.80x80" DefaultValue="https://localhost:3000/assets/Reports-transparent-icon-80.png"/>
+        
+        <bt:Image id="Icon2.16x16" DefaultValue="https://localhost:3000/assets/Design-icon-80.png"/>
+        <bt:Image id="Icon2.32x32" DefaultValue="https://localhost:3000/assets/Design-icon-80.png"/>
+        <bt:Image id="Icon2.80x80" DefaultValue="https://localhost:3000/assets/Design-icon-80.png"/>
+        <bt:Image id="Icon3.16x16" DefaultValue="https://localhost:3000/assets/Refresh-icon-80.png"/>
+        <bt:Image id="Icon3.32x32" DefaultValue="https://localhost:3000/assets/Refresh-icon-80.png"/>
+        <bt:Image id="Icon3.80x80" DefaultValue="https://localhost:3000/assets/Refresh-icon-80.png"/>
       </bt:Images>
       <bt:Urls>
         <bt:Url id="Functions.Script.Url" DefaultValue="https://localhost:3000/dist/functions.js"/>
@@ -124,18 +168,24 @@
         <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:3000/taskpane.html"/>
       </bt:Urls>
       <bt:ShortStrings>
-        <bt:String id="Functions.Namespace" DefaultValue="Rec"/>
+        <bt:String id="Functions.Namespace" DefaultValue="RecDistinct"/>
         <bt:String id="GetStarted.Title" DefaultValue="Get started with your sample add-in!"/>
         <bt:String id="CommandsGroup.Label" DefaultValue="Commands Group"/>
         <bt:String id="TaskpaneButton.Label" DefaultValue="Show Taskpane"/>
+        <!-- <bt:String id="DesignButton.Label" DefaultValue="Use Design"/> -->
+
         <bt:String id="Reports.Tab.TabLabel" DefaultValue="Fair Reports 365"/>
         <bt:String id="Reports.Tab1.GroupLabel" DefaultValue="Commands Fair Reports 365"/>
-        <bt:String id="Reports.TaskpaneButton.Label" DefaultValue="Show Taskpane"/>
+        <bt:String id="Reports.TaskpaneButton.Label" DefaultValue="Open Data"/>
+        <bt:String id="Reports2.TaskpaneButton.Label" DefaultValue="Use Design"/>
+        <bt:String id="Reports3.TaskpaneButton.Label" DefaultValue="Refresh"/>
+
       </bt:ShortStrings>
       <bt:LongStrings>
-        <bt:String id="GetStarted.Description" DefaultValue="Your sample add-in loaded succesfully. Go to the HOME tab and click the 'Show Taskpane' button to get started."/>
-        <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Click to Show a Taskpane"/>
+        <bt:String id="GetStarted.Description" DefaultValue="Your sample add-in loaded succesfully."/>
         <bt:String id="Reports.TaskpaneButton.Tooltip" DefaultValue="Click to Show a Taskpane"/>
+        <bt:String id="Reports2.TaskpaneButton.Tooltip" DefaultValue="Click to use Design"/>
+        <bt:String id="Reports3.TaskpaneButton.Tooltip" DefaultValue="Click to Refresh"/>
       </bt:LongStrings>
     </Resources>
   </VersionOverrides>

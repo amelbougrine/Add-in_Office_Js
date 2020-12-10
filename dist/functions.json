@@ -1,3 +1,97 @@
 {
-    "functions": []
+    "functions": [
+        {
+            "description": "Gets the star count for a given Github repository.",
+            "id": "SHOWDATA",
+            "name": "SHOWDATA",
+            "parameters": [],
+            "result": {}
+        },
+        {
+            "description": "Select Worksheets",
+            "id": "SHEETS",
+            "name": "SHEETS",
+            "parameters": [
+                {
+                    "description": "Worksheet",
+                    "name": "Feuilles",
+                    "type": "string"
+                }
+            ],
+            "result": {}
+        },
+        {
+            "description": "Select Rows",
+            "id": "ROWS",
+            "name": "ROWS",
+            "parameters": [
+                {
+                    "description": "Rows",
+                    "dimensionality": "matrix",
+                    "name": "Lignes",
+                    "type": "number"
+                }
+            ],
+            "result": {}
+        },
+        {
+            "description": "Select Columns",
+            "id": "COLUMNS",
+            "name": "COLUMNS",
+            "parameters": [
+                {
+                    "description": "Columns",
+                    "dimensionality": "matrix",
+                    "name": "Colonnes",
+                    "type": "number"
+                }
+            ],
+            "result": {}
+        },
+        {
+            "description": "Sum of a selected Range",
+            "id": "SUM",
+            "name": "SUM",
+            "parameters": [
+                {
+                    "description": "Worksheet",
+                    "name": "Table",
+                    "type": "string"
+                },
+                {
+                    "description": "Range",
+                    "dimensionality": "matrix",
+                    "name": "Champ",
+                    "type": "number"
+                },
+                {
+                    "name": "Filtre",
+                    "type": "any"
+                }
+            ],
+            "result": {}
+        },
+        {
+            "description": "Count the number of records",
+            "id": "COUNT",
+            "name": "COUNT",
+            "parameters": [
+                {
+                    "description": "Worksheet",
+                    "name": "Table",
+                    "type": "string"
+                },
+                {
+                    "name": "Filtre1",
+                    "type": "any"
+                },
+                {
+                    "description": "Cell",
+                    "name": "Filtre2",
+                    "type": "string"
+                }
+            ],
+            "result": {}
+        }
+    ]
 }

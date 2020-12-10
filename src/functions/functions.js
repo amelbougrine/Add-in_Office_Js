@@ -3,12 +3,59 @@
 // =RecColumns() --> Colonnes
 // =RecSum(Table, Champ, Filtre) --> Somme
 // =RecCount(Table, Filtre1, Filtre2) --> Compter le nombre d'enregistrement
+//=RecDistinctRows()
 /**
- * Sum of a single range
+  * Gets the star count for a given Github repository.
+  * @customfunction 
+  */
+ function ShowData() {
+  getData().then((a) => {
+    console.log(a);
+  });
+};
+  // var array= []; 
+  async function getData() {
+    try {
+      const url = "https://api.github.com/amelbougrine/Office-test";
+      const response =  await fetch(url).then(
+        res => res.ok ? 
+          res.json().then(res => Promise.resolve(res)) 
+          : res.json().then(err => Promise.reject(err)));
+        const data = response; 
+        return data;
+    } catch (error) {
+      return error;
+    }
+  } 
+/**
+ * Select Worksheets
  * @customfunction
- * @param {number[][]} singleRange  a single range
+ * @param {string} Feuilles  Worksheet
  */
-function Sheets() {
+function Sheets(Feuilles) {
+}
+/**
+ * Select Rows
+ * @customfunction
+ * @param {number[][]} Lignes Rows
+ */
+function Rows(Lignes) {
+}
+/**
+ * Select Columns
+ * @customfunction
+ * @param {number[][]} Colonnes Columns
+ */
+function Columns(Colonnes) {
+}
+/**
+ * Sum of a selected Range 
+ * @customfunction
+ * @param {string} Table  Worksheet
+ * @param {number[][]} Champ  Range
+ * @param {string} Filter  Cell
+ */
+function Sum(Table, Champ, Filtre) {
   // selectedSheet.getUsedRange().getFormat().autofitColumns();
   let selectedSheet = context.workbook.worksheets.getItem("Sheet1");
   let worksheet = worksheet
@@ -20,75 +67,13 @@ function Sheets() {
     })
   })
   return total;
-}/**
-* The sum of all of the numbers.
-* @customfunction
-* @param {number[][][]} operands A number (such as 1 or 3.1415), a cell address (such as A1 or $E$11), or a range of cell addresses (such as B3:F12)
-* @returns {number} The sum of all of the numbers.
-*/
-function Sum(operands) {
-  let total = 0;
-
-  operands.forEach(range => {
-    range.forEach(row => {
-      row.forEach(num => {
-        total += num;
-      });
-    });
-  });
-
-  return total;
 }
 /**
- * Sum of a single range
+ * Count the number of records 
  * @customfunction
- * @param {number[][]} singleRange  a single range
+ * @param {string} Table  Worksheet
+ * @param {string} Filter1  Cell
+ * @param {string} Filtre2  Cell
  */
-function Sum(header) {
-  // selectedSheet.getUsedRange().getFormat().autofitColumns();
-  let worksheet = worksheet
-  let singleRange = header;
-  let total = 0;
-  singleRange.forEach(setOfSingleValues => {
-    setOfSingleValues.forEach(value => {
-      total += value;
-    })
-  })
-  return total;
-}
-/**
- * Returns the second highest value in a matrixed range of values.
- * @customfunction
- * @param {number[][]} values Multiple ranges of values.
- */
-function SecondHighest(values) {
-  let highest = values[0][0],
-    secondHighest = values[0][0];
-  for (var i = 0; i < values.length; i++) {
-    for (var j = 0; j < values[i].length; j++) {
-      if (values[i][j] >= highest) {
-        secondHighest = highest;
-        highest = values[i][j];
-      } else if (values[i][j] >= secondHighest) {
-        secondHighest = values[i][j];
-      }
-    }
-  }
-  return secondHighest;
-}
-/**
- * Returns the second highest value in a matrixed range of values.
- * @customfunction
- */
-async function GetChartTitlee () {
-  var context = new Excel.RequestContext();
-  var sheets = context.workbook.worksheets;
-  sheets.load("name");
-  var array = [];
-  return context.sync().then(function() {
-    for (var i = 0; i < sheets.items.length; i++) {
-      array.push(sheets.items[i].name);
-    }
-    return array;
-  });
+function Count(Table, Filtre1, Filtre2) {
 }
