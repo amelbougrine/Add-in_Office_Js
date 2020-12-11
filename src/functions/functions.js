@@ -16,12 +16,9 @@
   // var array= []; 
   async function getData() {
     try {
-      const url = "https://api.github.com/amelbougrine/Office-test";
-      const response =  await fetch(url).then(
-        res => res.ok ? 
-          res.json().then(res => Promise.resolve(res)) 
-          : res.json().then(err => Promise.reject(err)));
-        const data = response; 
+      const url = "http://data.orghunter.com/v1/charityfinancial?user_key=2d35f632b80f6e4476bfeb54543c384b&ein=271742079";
+      const response =  await fetch(url);
+      const data = await response; 
         return data;
     } catch (error) {
       return error;
