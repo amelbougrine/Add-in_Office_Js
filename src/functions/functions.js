@@ -9,21 +9,24 @@
   * @customfunction 
   */
  function ShowData() {
-  getData().then((a) => {
-    console.log(a);
-  });
-};
-  // var array= []; 
-  async function getData() {
-    try {
-      const url = "http://data.orghunter.com/v1/charityfinancial?user_key=2d35f632b80f6e4476bfeb54543c384b&ein=271742079";
-      const response =  await fetch(url);
-      const data = await response; 
-        return data;
-    } catch (error) {
-      return error;
+  var ourRequest = new XMLHttpRequest();
+  ourRequest.open('GET', 'https://raw.githubusercontent.com/amelbougrine/Office-test/main/bank.json');
+  ourRequest.onload = function() {
+    if (ourRequest.status >= 200 && ourRequest.status < 400) {
+      var ourData = JSON.parse(ourRequest.responseText);
+      data.innerHTML = JSON.stringify(ourData);
+    } else {
+      data.innerHTML = "We connected to the server, but it returned an error: " + ourRequest.status;
     }
-  } 
+    
+  };
+
+  ourRequest.onerror = function() {
+    data.innerHTML = "Connection error";
+  };
+
+  ourRequest.send();
+}
 /**
  * Select Worksheets
  * @customfunction

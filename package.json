@@ -24,7 +24,9 @@
     "validate": "office-addin-manifest validate manifest.xml",
     "watch": "webpack --mode development --watch"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@microsoft/office-js": "^1.1.43"
+  },
   "devDependencies": {
     "@babel/core": "^7.10.2",
     "@babel/polyfill": "^7.10.1",
