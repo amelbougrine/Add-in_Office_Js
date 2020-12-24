@@ -5,8 +5,17 @@
 // =RecCount(Table, Filtre1, Filtre2) --> Compter le nombre d'enregistrement
 //=RecDistinctRows()
 /**
+ * Get text values that spill down.
+ * @customfunction
+ * @returns {string[][]} A dynamic array with multiple results.
+ */
+function spillDown() {
+  return [['first'], ['second'], ['third']];
+}
+/**
   * Gets the star count for a given Github repository.
   * @customfunction 
+  * @return {string} Data
   */
  function ShowData() {
   var ourRequest = new XMLHttpRequest();
@@ -14,15 +23,18 @@
   ourRequest.onload = function() {
     if (ourRequest.status >= 200 && ourRequest.status < 400) {
       var ourData = JSON.parse(ourRequest.responseText);
-      data.innerHTML = JSON.stringify(ourData);
+      let data = JSON.stringify(ourData);
+      return data[0];
     } else {
-      data.innerHTML = "We connected to the server, but it returned an error: " + ourRequest.status;
+      let data = "We connected to the server, but it returned an error: " + ourRequest.status;
+      return data;
     }
     
   };
 
   ourRequest.onerror = function() {
-    data.innerHTML = "Connection error";
+    let data = "Connection error";
+    return data;
   };
 
   ourRequest.send();

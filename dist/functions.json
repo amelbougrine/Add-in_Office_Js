@@ -1,11 +1,23 @@
 {
     "functions": [
         {
+            "description": "Get text values that spill down.",
+            "id": "SPILLDOWN",
+            "name": "SPILLDOWN",
+            "parameters": [],
+            "result": {
+                "dimensionality": "matrix",
+                "type": "string"
+            }
+        },
+        {
             "description": "Gets the star count for a given Github repository.",
             "id": "SHOWDATA",
             "name": "SHOWDATA",
             "parameters": [],
-            "result": {}
+            "result": {
+                "type": "string"
+            }
         },
         {
             "description": "Select Worksheets",
