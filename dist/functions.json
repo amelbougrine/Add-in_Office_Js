@@ -11,11 +11,12 @@
             }
         },
         {
-            "description": "Gets the star count for a given Github repository.",
-            "id": "SHOWDATA",
-            "name": "SHOWDATA",
+            "description": "Get text values that spill to the right.",
+            "id": "SPILLRIGHT",
+            "name": "SPILLRIGHT",
             "parameters": [],
             "result": {
+                "dimensionality": "matrix",
                 "type": "string"
             }
         },
