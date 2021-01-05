@@ -15,7 +15,11 @@ call();
  * @returns {string[][]} A dynamic array with multiple results.
  */
 function spillDown() {
-  return [[data1.Date], [data1.Montant], ['third']];
+  for (let i=0; i < data1.length; i++) {
+    var list = [];
+    list.forEach( data => {
+      return [[data.Date], [data.Montant], [data.N_Compte]];
+    });
 }
 /**
  * Get text values that spill to the right.
@@ -23,7 +27,9 @@ function spillDown() {
  * @returns {string[][]} A dynamic array with multiple results.
  */
 function spillRight() {
-  return [[data1.Date, data1.Montant, 'third']];
+  for (let i=0; i < data1.length; i++) {
+  return [[data1[i].Date, data1[i].Montant, data1[i].N_Compte, data1.length]];
+  }
 }
 // /**
 //   * Gets the star count for a given Github repository.
@@ -35,8 +41,7 @@ function spillRight() {
   ourRequest.open('GET', 'https://raw.githubusercontent.com/amelbougrine/Office-test/main/bank.json');
   ourRequest.onload = function() {
     if (ourRequest.status >= 200 && ourRequest.status < 400) {
-      var ourData = JSON.parse(ourRequest.responseText);
-      data1 = ourData[0];
+      data1 = JSON.parse(ourRequest.responseText);
       return;
     } else {
       let data = "We connected to the server, but it returned an error: " + ourRequest.status;
