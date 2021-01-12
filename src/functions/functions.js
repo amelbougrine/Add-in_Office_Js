@@ -4,54 +4,28 @@
 // =RecSum(Table, Champ, Filtre) --> Somme
 // =RecCount(Table, Filtre1, Filtre2) --> Compter le nombre d'enregistrement
 //=RecDistinctRows()
-var data1;
+var bank;
 async function call() {
   await ShowData();
 }
 call();
-/**
- * Get text values that spill down.
- * @customfunction
- * @returns {string[][]} A dynamic array with multiple results.
- */
-function spillDown() {
-  for (let i=0; i < data1.length; i++) {
-    var list = [];
-    list.forEach( data => {
-      return [[data.Date], [data.Montant], [data.N_Compte]];
-    });
-}
-/**
- * Get text values that spill to the right.
- * @customfunction
- * @returns {string[][]} A dynamic array with multiple results.
- */
-function spillRight() {
-  for (let i=0; i < data1.length; i++) {
-  return [[data1[i].Date, data1[i].Montant, data1[i].N_Compte, data1.length]];
-  }
-}
-// /**
-//   * Gets the star count for a given Github repository.
-//   * @customfunction 
-//   * @return {string} Data
-//   */
+
  function ShowData() {
   var ourRequest = new XMLHttpRequest();
   ourRequest.open('GET', 'https://raw.githubusercontent.com/amelbougrine/Office-test/main/bank.json');
   ourRequest.onload = function() {
     if (ourRequest.status >= 200 && ourRequest.status < 400) {
-      data1 = JSON.parse(ourRequest.responseText);
+      bank = JSON.parse(ourRequest.responseText);
       return;
     } else {
       let data = "We connected to the server, but it returned an error: " + ourRequest.status;
-      data1 = data;
+      bank = data;
       return;
     }
   };
   ourRequest.onerror = function() {
     let data = "Connection error";
-    data1 = data;
+    bank = data;
     return;
   };
   ourRequest.send();
@@ -64,20 +38,77 @@ function spillRight() {
  */
 function Sheets(Feuilles) {
 }
+
 /**
- * Select Rows
+ * Show data by Columns
  * @customfunction
- * @param {number[][]} Lignes Rows
+ * @param {string} table  Table 
+ * @param {string} champ  Range 
+ * @returns {string[][]} A dynamic array with multiple results.
  */
-function Rows(Lignes) {
+function Columns(table, champ) {
+  var list = [];
+  if (table == "Bank" || table == "bank") {
+    for (let i=0; i<bank.length; i++) {
+      switch (champ) {
+        case "Date":
+        case "date":
+          var  element = Array.of(JSON.stringify(bank[i].Date));
+          break;
+        case "Montant":
+        case "montant":
+          var  element = Array.of(JSON.stringify(bank[i].Montant));
+          break;
+        case "N_Compte":
+        case "n_compte":
+          var  element = Array.of(JSON.stringify(bank[i].N_Compte));
+          break;
+        default:
+          return "There is no " + champ + " range, Try 'Date', 'Montant' or 'N_Compte'.";
+      }
+      list.push(element);
+    };
+    return list;
+  } else {
+    return "There is no " + table + "table, Try 'Bank'"; 
+  }
 }
+
 /**
- * Select Columns
+ * Show data by Rows
  * @customfunction
- * @param {number[][]} Colonnes Columns
+ * @param {string} table  Table 
+ * @param {string} champ  Range 
+ * @returns {string[][]} A dynamic array with multiple results.
  */
-function Columns(Colonnes) {
+function Rows (table, champ) {
+  var list = [];
+  if (table == "Bank" || table == "bank") {
+    for (let i=0; i<bank.length; i++) {
+      switch (champ) {
+        case "Date":
+        case "date":
+          var  element = JSON.stringify(bank[i].Date);
+          break;
+        case "Montant":
+        case "montant":
+          var  element = JSON.stringify(bank[i].Montant);
+          break;
+        case "N_Compte":
+        case "n_compte":
+          var  element = JSON.stringify(bank[i].N_Compte);
+          break;
+        default:
+          return "There is no " + champ + " range, Try 'Date', 'Montant' or 'N_Compte'.";
+      }
+      list.push(element);
+    };
+    return Array.of(list);
+  } else {
+    return "There is no " + table + "table, Try 'Bank'"; 
+  }
 }
+
 /**
  * Sum of a selected Range 
  * @customfunction

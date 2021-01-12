@@ -1,14 +1,104 @@
 {
     "functions": [
         {
-            "description": "Get text values that spill down.",
-            "id": "SPILLDOWN",
-            "name": "SPILLDOWN",
-            "parameters": [],
+            "description": "Select Worksheets",
+            "id": "SHEETS",
+            "name": "SHEETS",
+            "parameters": [
+                {
+                    "description": "Worksheet",
+                    "name": "Feuilles",
+                    "type": "string"
+                }
+            ],
+            "result": {}
+        },
+        {
+            "description": "Show data by Columns",
+            "id": "COLUMNS",
+            "name": "COLUMNS",
+            "parameters": [
+                {
+                    "description": "Table",
+                    "name": "table",
+                    "type": "string"
+                },
+                {
+                    "description": "Range",
+                    "name": "champ",
+                    "type": "string"
+                }
+            ],
             "result": {
                 "dimensionality": "matrix",
                 "type": "string"
             }
+        },
+        {
+            "description": "Show data by Rows",
+            "id": "ROWS",
+            "name": "ROWS",
+            "parameters": [
+                {
+                    "description": "Table",
+                    "name": "table",
+                    "type": "string"
+                },
+                {
+                    "description": "Range",
+                    "name": "champ",
+                    "type": "string"
+                }
+            ],
+            "result": {
+                "dimensionality": "matrix",
+                "type": "string"
+            }
+        },
+        {
+            "description": "Sum of a selected Range",
+            "id": "SUM",
+            "name": "SUM",
+            "parameters": [
+                {
+                    "description": "Worksheet",
+                    "name": "Table",
+                    "type": "string"
+                },
+                {
+                    "description": "Range",
+                    "dimensionality": "matrix",
+                    "name": "Champ",
+                    "type": "number"
+                },
+                {
+                    "name": "Filtre",
+                    "type": "any"
+                }
+            ],
+            "result": {}
+        },
+        {
+            "description": "Count the number of records",
+            "id": "COUNT",
+            "name": "COUNT",
+            "parameters": [
+                {
+                    "description": "Worksheet",
+                    "name": "Table",
+                    "type": "string"
+                },
+                {
+                    "name": "Filtre1",
+                    "type": "any"
+                },
+                {
+                    "description": "Cell",
+                    "name": "Filtre2",
+                    "type": "string"
+                }
+            ],
+            "result": {}
         }
     ]
 }
